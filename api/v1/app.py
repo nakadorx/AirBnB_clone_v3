@@ -1,4 +1,3 @@
-  
 #!/usr/bin/python3
 """
 app file and fuction
@@ -26,6 +25,7 @@ def handle_error_404(e):
     give me the error 404
     """
     return jsonify(error="Not found"), 404
+
 
 if __name__ == "__main__":
     """
