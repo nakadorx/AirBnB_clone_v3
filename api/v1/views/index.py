@@ -7,7 +7,6 @@ from flask import jsonify
 from models import storage
 
 
-
 @app_views.route('/status')
 def all_states():
     """
@@ -16,7 +15,7 @@ def all_states():
     return jsonify(status="OK")
 
 
-@app_views.route('/stats')
+@app_views.route('/stats', methods=['GET'], strict_slashes=False)
 def counts():
     """
     hamammet hammamet
