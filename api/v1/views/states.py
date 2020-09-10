@@ -16,6 +16,7 @@ def indexSt():
         res.append(state.to_dict())
     return jsonify(res)
 
+
 @app_views.route('/states/<state_id>', strict_slashes=False)
 def findSt(state_id):
     """find
