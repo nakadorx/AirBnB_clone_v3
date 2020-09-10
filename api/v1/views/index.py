@@ -16,16 +16,13 @@ def all_states():
 
 
 @app_views.route('/stats', methods=['GET'], strict_slashes=False)
-def counts():
+def counter():
     """
     hamammet hammamet
     """
-    stats = {
-      "amenities": storage.count('Amenity'),
-      "cities": storage.count('City'),
-      "places": storage.count('Place'),
-      "reviews": storage.count('Review'),
-      "states": storage.count('State'),
-      "users": storage.count('User')
-    }
-    return jsonify(stats)
+    return jsonify({"amenities": storage.count('Amenity'),
+                    "cities": storage.count('City'),
+                    "places": storage.count('Place'),
+                    "reviews": storage.count('Review'),
+                    "states": storage.count('State'),
+                    "users": storage.count('User')})
