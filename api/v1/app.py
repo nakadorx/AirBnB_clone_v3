@@ -29,12 +29,8 @@ def handle_error_404(e):
 
 if __name__ == "__main__":
     """
-    fonction
+    climatiseurr fil 16 3wina hashtag
     """
-    host1 = getenv('HBNB_API_HOST')
-    port1 = getenv('HBNB_API_PORT')
-    if host1 is None:
-        host1 = "0.0.0.0"
-    if port1 is None:
-        port = 5000
-    app.run(host=host1, port=port1, threaded=True)
+    app.run(host=getenv('HBNB_API_HOST', default='0.0.0.0'),
+            port=getenv('HBNB_API_PORT', default=5000),
+            threaded=True)
