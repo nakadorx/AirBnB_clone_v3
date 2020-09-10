@@ -29,19 +29,6 @@ def findSt(state_id):
     abort(404)
 
 
-@app_views.route('/states/<state_id>', methods=['DELETE'],
-                 strict_slashes=False)
-def deleteSt(state_id):
-    """delete
-    """
-    deleteSt = storage.get("State", state_id)
-    if deleteSt:
-        storage.delete(deleteSt)
-        storage.save()
-        return jsonify({})
-    abort(404)
-
-
 @app_views.route('/states', methods=['POST'], strict_slashes=False)
 def saveSt():
     """saveSt
@@ -73,3 +60,16 @@ def updateSt(state_id=None):
         setattr(updateS, key, value)
     storage.save()
     return jsonify(updateS.to_dict())
+
+
+@app_views.route('/states/<state_id>', methods=['DELETE'],
+                 strict_slashes=False)
+def deleteSt(state_id):
+    """delete
+    """
+    deleteSt = storage.get("State", state_id)
+    if deleteSt:
+        storage.delete(deleteSt)
+        storage.save()
+        return jsonify({})
+    abort(404)
