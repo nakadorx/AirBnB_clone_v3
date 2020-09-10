@@ -8,8 +8,8 @@ from models.amenity import Amenity
 
 
 @app_views.route('/amenities', strict_slashes=False)
-def rettAll():
-    """rettAll
+def indexAm():
+    """indexAm
     """
     lst = []
     val = storage.all("Amenity").values()
@@ -19,8 +19,8 @@ def rettAll():
 
 
 @app_views.route('/amenities/<amenity_id>', strict_slashes=False)
-def RetriOne(amenity_id):
-    """RetriOne
+def findAm(amenity_id):
+    """findAm
     """
     val = storage.all("Amenity").values()
     if amenity_id is not None:

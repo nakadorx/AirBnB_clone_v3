@@ -8,8 +8,8 @@ from flask import Flask, jsonify, abort, request
 @app_views.route('/states/<state_id>/cities',
                  methods=['GET'],
                  strict_slashes=False)
-def rndrCityBySt(state_id):
-    """rndrCityBySt"""
+def indexCity(state_id):
+    """indexCity"""
     state = storage.get("State", state_id)
     if state:
         return jsonify([city.to_dict() for city in state.cities])
@@ -17,8 +17,8 @@ def rndrCityBySt(state_id):
 
 
 @app_views.route('/cities/<city_id>', methods=['GET'], strict_slashes=False)
-def rndrCityById(city_id):
-    """rndrCityById"""
+def findCity(city_id):
+    """findCity"""
     x = storage.get("City", city_id)
     if x:
         return jsonify(x.to_dict())
