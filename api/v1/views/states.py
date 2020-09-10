@@ -12,10 +12,10 @@ def indexSt():
     """index
     """
     res = []
-    states = storage.all("State").values()
-    for res in states:
-        x.append(res.to_dict())
-    return jsonify(x)
+    states_values = storage.all("State").values()
+    for x in states_values:
+        res.append(x.to_dict())
+    return jsonify(res)
 
 
 @app_views.route('/states/<state_id>', strict_slashes=False)
