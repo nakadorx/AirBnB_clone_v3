@@ -74,9 +74,9 @@ class FileStorage:
         function get to geet an object
         """
         if (cls in self.CNC) or (id is not None):
-            all_objs = self.all(cls)
-            new_id = cls + '.' + id
-            return all_objs.get(new_id)
+            objs = self.all(cls)
+            ides = cls + '.' + id
+            return objs.get(ides)
         return None
 
     def count(self, cls=None):
