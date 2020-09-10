@@ -79,8 +79,10 @@ class DBStorage:
         """
         Give me the id
         """
-        if self.all(cls) is not None:
-            return self.all(cls).get(id)
+        if id:
+            for obj in self.all(cls).values():
+                if obj.id == id:
+                    return obj
         return None
 
     def count(self, cls=None):

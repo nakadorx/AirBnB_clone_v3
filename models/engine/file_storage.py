@@ -73,14 +73,16 @@ class FileStorage:
         """
         function get to geet an object
         """
-        if (cls in self.CNC) or (id is not None):
-            all_objs = self.all(cls)
-            new_id = cls + '.' + id
-            return all_objs.get(new_id)
+        if id:
+            for obj in self.all(cls).values():
+                if obj.id == id:
+                    return obj
         return None
 
     def count(self, cls=None):
         """
         compteur
         """
-        return len(self.all(cls))
+        if cls:
+            return len(self.all(cls))
+        return len(self.all())
