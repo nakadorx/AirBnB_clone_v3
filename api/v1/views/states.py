@@ -11,10 +11,10 @@ from models.state import State
 def indexSt():
     """index
     """
-    x = []
+    res = []
     states = storage.all("State").values()
-    for obj in states:
-        x.append(obj.to_dict())
+    for res in states:
+        x.append(res.to_dict())
     return jsonify(x)
 
 
